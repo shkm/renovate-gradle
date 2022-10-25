@@ -6,7 +6,6 @@
   "labels": ["renovate"],
   "configMigration": true,
   "dockerfile": { "enabled": false },
-  "github-tags": { "enabled": false },
   "major": { "dependencyDashboardApproval": true },
   "postUpdateOptions": ["bundlerConservative"],
   "rangeStrategy": "update-lockfile",
