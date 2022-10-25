@@ -1,0 +1,34 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "timezone": "Europe/Amsterdam",
+  "extends": ["config:base"],
+  "ignorePresets": [":prHourlyLimit2"],
+  "labels": ["renovate"],
+  "configMigration": true,
+  "dockerfile": { "enabled": false },
+  "github-tags": { "enabled": false },
+  "major": { "dependencyDashboardApproval": true },
+  "postUpdateOptions": ["bundlerConservative"],
+  "rangeStrategy": "update-lockfile",
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true,
+      "automergeType": "branch",
+      "prPriority": -1
+    },
+    {
+      "groupName": "nedap",
+      "matchPackagePrefixes": ["cupido-", "healthcare-", "healthcare_", "shield-"],
+      "prPriority": 1
+    },
+    {
+      "groupName": "nedap - safe minor updates",
+      "matchPackageNames": ["hubjs-rails", "hubjs"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType":  "branch",
+      "prPriority": 2
+    }
+  ]
+}
